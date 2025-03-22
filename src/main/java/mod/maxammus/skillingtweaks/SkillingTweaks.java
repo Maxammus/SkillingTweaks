@@ -76,13 +76,16 @@ public class SkillingTweaks implements WurmServerMod, Configurable, Initable, Pr
             }
             if(debugging) {
                 logger.info("Enabling skilling debug");
-                debug = "com.wurmonline.server.Players.getInstance().getPlayer(parent.getId()).getCommunicator()" +
-                        "   .sendMessage(new com.wurmonline.server.Message(null, (byte)0, \"Skill Debug\", " +
+                debug = "com.wurmonline.server.players.Player player = " +
+                        "   com.wurmonline.server.Players.getInstance().getPlayerOrNull(parent.getId());" +
+                        "if(player != null)" +
+                        "   player.getCommunicator().sendMessage(new com.wurmonline.server.Message(null, (byte)0, \"Skill Debug\", " +
 //                        "java.lang.String.format(\"%s: diff: %.2f, power: %.2f, learnMod: %.2f, times: %.2f, skillDivider: %.2f\", new Object[] { getName(), $1, $2, $3, $4, $5 })));";
                         "       mod.maxammus.skillingtweaks.SkillingTweaks.debugString(getName(), check, power, learnMod, times, skillDivider)));";
             }
 
-            doSkillGainNew.insertBefore("{ " + scaling + debug + powerCheck + "}");
+            if(onlineLike || difficultyScaling > 0 || debugging)
+                doSkillGainNew.insertBefore("{ " + scaling + debug + powerCheck + "}");
 
         } catch (NotFoundException | CannotCompileException e) {
             throw new RuntimeException(e);
