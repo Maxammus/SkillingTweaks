@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>mod.maxammus</groupId>
+    <artifactId>SkillingTweaks</artifactId>
+    <version>0.1</version>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <repositories>
+        <repository>
+            <id>gotti-no-ip-org-ssh-repository</id>
+            <url>https://gotti.no-ip.org/maven/repository</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.gotti.wurmunlimited</groupId>
+            <artifactId>modloader-shared</artifactId>
+            <version>0.18</version>
+        </dependency>
+        <dependency>
+            <groupId>org.gotti.wurmunlimited</groupId>
+            <artifactId>server-modlauncher</artifactId>
+            <version>0.47</version>
+        </dependency>
+        <dependency>
+            <groupId>org.gotti.wurmunlimited</groupId>
+            <artifactId>common</artifactId>
+            <version>4596061</version>
+        </dependency>
+        <dependency>
+            <groupId>org.gotti.wurmunlimited</groupId>
+            <artifactId>server</artifactId>
+            <version>4596061</version>
+        </dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.23.1-GA</version>
+        </dependency>
+    </dependencies>
+
+</project>
